@@ -1,14 +1,13 @@
 package lexer
 
 import (
-	"testing"
-
+	"../lexer"
 	"../token"
+	"testing"
 )
 
 func TestNextToken(t *testing.T) {
-	input :=
-		`
+	input := `
 		let five = 5;
 		let ten = 10;
 
@@ -17,7 +16,7 @@ func TestNextToken(t *testing.T) {
 		};
 
 		let result = add(five, ten);
-		`
+	`
 
 	tests := []struct {
 		expectedType    token.TokenType
@@ -39,7 +38,7 @@ func TestNextToken(t *testing.T) {
 		{token.IDENT, "add"},
 		{token.ASSIGN, "="},
 		{token.FUNCTION, "fn"},
-		{token.LBRACE, "("},
+		{token.LPAREN, "("},
 		{token.IDENT, "x"},
 		{token.COMMA, ","},
 		{token.IDENT, "y"},
@@ -64,7 +63,7 @@ func TestNextToken(t *testing.T) {
 		{token.SEMICOLON, ";"},
 	}
 
-	l := New(input)
+	l := lexer.New(input)
 
 	for i, tt := range tests {
 		tok := l.NextToken()
