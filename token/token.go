@@ -37,8 +37,8 @@ const (
 	RBRACE = "}"
 
 	// keywords
-	FUNCTION = "FUNCTION"
-	LET      = "LET"
+	FUNCTION = "fn"
+	LET      = "let"
 	IF       = "if"
 	ELSE     = "else"
 	TRUE     = "true"
